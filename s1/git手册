@@ -39,3 +39,17 @@ git fetch 远程仓库名字 这一步相当于就是首先把远程仓库的提
 git merge 远程仓库名字/分支名
 或者直接
 git pull
+清理已失效的远程分支引用
+git fetch --prune 远程仓库名字
+reset的三种模式 
+比如现在的提交记录是A-B-C-D-E HEAD指向E
+git reset --soft D 只移动HEAD指针 不会更改暂存区和工作区 相当于是只有本地仓库变成了D，其余两个都是E，直接commit又变回去了
+git reset --mixed D 这是默认模式 会移动HEAD指针和更改暂存区 不会更改工作区 相当于是本地仓库和暂存区都变成了D 工作区还是E 需要重新add到暂存区 然后commit又变回去了
+git reset --hard D 会移动HEAD指针 更改暂存区和工作区 相当于是本地仓库 暂存区 工作区都变成了D 注意这个操作会丢失工作区的修改
+
+和checkout的区别
+checkout本质是用来切换head的，而分支指针不动
+而reset是用来重置分支指针的，HEAD只是跟着移动
+checkout分支就是切换到分支 checkout版本就是把HEAD切换到某个版本
+
+注意第一次设置远程分支的时候，在添加远程仓库后应该现fetch一下，然后才能更新远程仓库的分支信息，然后进行上游分支的绑定。
