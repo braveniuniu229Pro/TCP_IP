@@ -74,3 +74,6 @@ git rebase C相当于是直接找到公共祖先，然后把C在公共祖先的�
 因此就很容易理解了
 普通的pull就是merge就是把远程的和本地的产生个新提交插在本地后面 然后你再push就可以了
 而pull --rebase则是把本地超过远程的部分变成对应的新提交插到远程分支的后面，这样就变成了一个线性链，不用处理冲突，同样再push就可以了。
+
+查看log的综合命令 --oneline是一行 --graph是图 --decorate是显示tag这些 --all是所有分支
+git log --oneline --graph --decorate --all
