@@ -16,32 +16,32 @@ git remote add upstream（这个名字随意起） <别人的远程仓库地址>
 git branch -a
 2. 查看远程分支
 git branch -r
-3. 查看追踪关系
+1. 查看追踪关系
 git branch -vv
-4. 设置当前分支的远程跟踪分支
+1. 设置当前分支的远程跟踪分支
 git branch --set-upstream-to=origin/分支名 或直接git push -u origin 分支名
-5. 删除远程跟踪分支
+1. 删除远程跟踪分支
 当前分支：git branch --unset-upstream
 其他分支：git branch --unset-upstream 分支名
-6. 删除分支本身
+1. 删除分支本身
 git branch -d 分支名（删除本地分支）
 git push origin --delete 分支名（删除远程分支）
-7. 查看远程仓库
+1. 查看远程仓库
 git remote -v
-8. 修改远程仓库名字
+1. 修改远程仓库名字
 git remote rename 旧名字 新名字
-9. 删除远程仓库
+1. 删除远程仓库
 git remote remove 远程仓库名字
-20. 添加远程仓库
+1.  添加远程仓库
 git remote add 远程仓库名字 远程仓库地址
-22. 拉取远程仓库的内容
+1.  拉取远程仓库的内容
 git fetch 远程仓库名字 这一步相当于就是首先把远程仓库的提交对象都下载下来，然后下载所有分支的引用关系，但是对于本地仓库本身不会有任何影响。
 git merge 远程仓库名字/分支名
 或者直接
 git pull
-12. 清理已失效的远程分支引用
+1.  清理已失效的远程分支引用
 git fetch --prune 远程仓库名字
-13. reset的三种模式 
+1.  reset的三种模式 
 比如现在的提交记录是A-B-C-D-E HEAD指向E
 - git reset --soft D 只移动HEAD指针 不会更改暂存区和工作区 相当于是只有本地仓库变成了D，其余两个都是E，直接commit又变回去了
 - git reset --mixed D 这是默认模式 会移动HEAD指针和更改暂存区 不会更改工作区 相当于是本地仓库和暂存区都变成了D 工作区还是E 需要重新add到暂存区 然后commit又变回去了
